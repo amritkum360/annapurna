@@ -7,11 +7,14 @@ import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
 
-// Allowed origins
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+// Allowed origins - supports wildcard (*), comma-separated URLs, or defaults to reflecting origin
+const clientUrl = process.env.CLIENT_URL;
+const allowedOrigins = clientUrl && clientUrl !== '*'
+  ? clientUrl.split(',').map((u) => u.trim())
+  : true;
 
 app.use(cors({
-  origin: clientUrl,
+  origin: allowedOrigins,
   credentials: true
 }));
 

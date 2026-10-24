@@ -1,5 +1,9 @@
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+const rawBaseUrl =
+  import.meta.env.VITE_API_BASE_URL || 'https://annapurna1-okjg.onrender.com/api';
+
+const API_BASE_URL = rawBaseUrl.endsWith('/api')
+  ? rawBaseUrl
+  : `${rawBaseUrl.replace(/\/$/, '')}/api`;
 
 /**
  * Generic API request helper with JSON parsing and token attachment

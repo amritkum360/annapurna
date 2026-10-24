@@ -1,0 +1,147 @@
+/* Global styles for Annapurna Food Rescue - Aesthetic Bisque & Forest Dark Green Theme */
+:root {
+  --primary-color: #1b4332; /* Deep aesthetic dark green */
+  --primary-hover: #143628;
+  --bg-bisque: #fbf3ea;     /* Warm aesthetic bisque tone */
+  --card-border: #ebdcd0;   /* Clean subtle neutral border */
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-bisque);
+  color: #212529;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-bisque);
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Simplified, modern card styling: subtle border and soft elevation */
+.card {
+  border-radius: 12px !important;
+  border: 1px solid #e7e5e4 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  background-color: #ffffff !important;
+}
+
+/* Softened input and dropdown borders */
+.form-control,
+.form-select {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #1b4332 !important;
+  box-shadow: 0 0 0 0.15rem rgba(27, 67, 50, 0.12) !important;
+}
+
+/* Custom dark green overrides for aesthetic branding */
+.btn-success {
+  background-color: #1b4332 !important;
+  border-color: #1b4332 !important;
+  color: #ffffff !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  background-color: #143628 !important;
+  border-color: #143628 !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-success {
+  color: #1b4332 !important;
+  border-color: #1b4332 !important;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+  background-color: #1b4332 !important;
+  border-color: #1b4332 !important;
+  color: #ffffff !important;
+}
+
+.text-success {
+  color: #1b4332 !important;
+}
+
+.bg-success {
+  background-color: #1b4332 !important;
+}
+
+.bg-success-subtle {
+  background-color: #eaf3ed !important;
+  color: #1b4332 !important;
+}
+
+.border-success {
+  border-color: #2d6a4f !important;
+}
+
+.badge-role-donor,
+.badge-role-ngo,
+.badge-role-volunteer {
+  background-color: #e9f3ed !important;
+  color: #1b4332 !important;
+  border: 1px solid #c2dec9 !important;
+}
+
+.badge-role-admin {
+  background-color: #212529 !important;
+  color: #ffffff !important;
+}
+
+/* Small floating toast notifications */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-item {
+  animation: toastSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
+}
+
+/* Print optimizations for Impact Certificate */
+@media print {
+  body {
+    background-color: #ffffff !important;
+  }
+  .d-print-none,
+  .navbar,
+  footer,
+  #toast-root {
+    display: none !important;
+  }
+  .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .modal-content {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .certificate-card {
+    box-shadow: none !important;
+    border: 4px double #1b4332 !important;
+  }
+}

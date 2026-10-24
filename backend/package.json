@@ -1,0 +1,25 @@
+{
+  "name": "annapurna-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend server for Annapurna Food Rescue",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed:admin": "node src/scripts/seed-admin.js",
+    "seed:demo": "node src/scripts/seed-demo.js",
+    "test:db": "node src/scripts/test-db.js",
+    "test:distance": "node src/scripts/test-distance.js",
+    "test:phase7": "node src/scripts/test-phase7.js",
+    "test:phase8": "node src/scripts/test-phase8.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.4"
+  }
+}

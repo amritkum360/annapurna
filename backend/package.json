@@ -9,6 +9,7 @@
     "dev": "node --watch src/server.js",
     "build": "echo 'No build step required for Node backend'",
     "seed:admin": "node src/scripts/seed-admin.js",
+    "seed:users": "node src/scripts/seed-users.js",
     "seed:demo": "node src/scripts/seed-demo.js",
     "test:db": "node src/scripts/test-db.js",
     "test:distance": "node src/scripts/test-distance.js",

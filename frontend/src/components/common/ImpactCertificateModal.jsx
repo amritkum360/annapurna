@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AlertMessage from './AlertMessage';
+import logo from '../../assets/logo.png';
 
 /**
  * ImpactCertificateModal - Formal, printable Certificate of Social Impact & 80G CSR Receipt
@@ -120,13 +121,22 @@ const ImpactCertificateModal = ({ donation, onClose }) => {
               >
                 {/* Decorative Top Corners */}
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <div className="text-start">
-                    <span className="fs-3">🍲</span>
-                    <span className="fw-bold fs-5 ms-2 text-dark" style={{ letterSpacing: '-0.5px' }}>
-                      Annapurna
-                    </span>
-                    <div className="text-muted small" style={{ fontSize: '0.72rem' }}>
-                      Save Food • Share Hope
+                  <div className="text-start d-flex align-items-center gap-2">
+                    <img
+                      src={logo}
+                      alt="Annapurna"
+                      width="40"
+                      height="40"
+                      className="rounded-circle p-1 border"
+                      style={{ objectFit: 'contain' }}
+                    />
+                    <div>
+                      <span className="fw-bold fs-5 text-dark" style={{ letterSpacing: '-0.5px' }}>
+                        Annapurna
+                      </span>
+                      <div className="text-muted small" style={{ fontSize: '0.72rem' }}>
+                        Save Food • Share Hope
+                      </div>
                     </div>
                   </div>
                   <div className="text-end">

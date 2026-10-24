@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import logo from '../../assets/logo.png';
 
 /**
  * Main application navigation bar with authentication state awareness
@@ -30,7 +31,14 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top" style={{ backgroundColor: '#1b4332', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
-          <span className="fs-4">🍲</span>
+          <img
+            src={logo}
+            alt="Annapurna Logo"
+            width="34"
+            height="34"
+            className="rounded-circle bg-white p-1"
+            style={{ objectFit: 'contain' }}
+          />
           <div>
             <div className="brand-title lh-1">Annapurna</div>
             <small className="text-light opacity-75" style={{ fontSize: '0.72rem' }}>

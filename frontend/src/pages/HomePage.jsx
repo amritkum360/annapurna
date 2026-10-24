@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import CommunityLeaderboard from '../components/leaderboard/CommunityLeaderboard';
+import logo from '../assets/logo.png';
 
 /**
  * Public landing page explaining the platform purpose and user roles
@@ -12,7 +13,16 @@ const HomePage = () => {
     <div className="container py-5">
       {/* Hero Section */}
       <div className="text-center py-5 bg-white rounded-3 shadow-sm p-4 mb-5 border">
-        <span className="display-4 mb-2 d-block">🍲</span>
+        <div className="mb-3">
+          <img
+            src={logo}
+            alt="Annapurna Logo"
+            width="88"
+            height="88"
+            className="rounded-circle shadow-sm p-1 border"
+            style={{ objectFit: 'contain' }}
+          />
+        </div>
         <h1 className="fw-bold text-success mb-2">Annapurna</h1>
         <p className="lead text-secondary fw-normal mb-3">
           Save Food. Share Hope.

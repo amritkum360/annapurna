@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import AlertMessage from '../components/common/AlertMessage';
+import logo from '../assets/logo.png';
 
 /**
  * User registration page with role selection
@@ -58,7 +59,14 @@ const RegisterPage = () => {
           <div className="card shadow-sm border-0">
             <div className="card-body p-4 p-md-5">
               <div className="text-center mb-4">
-                <span className="fs-1">🤝</span>
+                <img
+                  src={logo}
+                  alt="Annapurna Logo"
+                  width="64"
+                  height="64"
+                  className="rounded-circle shadow-sm p-1 border mb-2"
+                  style={{ objectFit: 'contain' }}
+                />
                 <h2 className="fw-bold text-success mt-2">Join Annapurna</h2>
                 <p className="text-muted small">Create an account to save food and share hope</p>
               </div>

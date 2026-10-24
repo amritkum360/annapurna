@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import AlertMessage from '../components/common/AlertMessage';
+import logo from '../assets/logo.png';
 
 /**
  * User sign-in page with email and password
@@ -49,7 +50,14 @@ const LoginPage = () => {
           <div className="card shadow-sm border-0">
             <div className="card-body p-4 p-md-5">
               <div className="text-center mb-4">
-                <span className="fs-1">🍲</span>
+                <img
+                  src={logo}
+                  alt="Annapurna Logo"
+                  width="64"
+                  height="64"
+                  className="rounded-circle shadow-sm p-1 border mb-2"
+                  style={{ objectFit: 'contain' }}
+                />
                 <h2 className="fw-bold text-success mt-2">Welcome Back</h2>
                 <p className="text-muted small">Sign in to your Annapurna account</p>
               </div>

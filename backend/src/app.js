@@ -7,14 +7,23 @@ import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
 
-// Allowed origins - supports wildcard (*), comma-separated URLs, or defaults to reflecting origin
-const clientUrl = process.env.CLIENT_URL;
-const allowedOrigins = clientUrl && clientUrl !== '*'
-  ? clientUrl.split(',').map((u) => u.trim())
-  : true;
+// Robust CORS middleware supporting dynamic frontend origins, credentials & preflight
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  }
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+  next();
+});
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: true,
   credentials: true
 }));
 

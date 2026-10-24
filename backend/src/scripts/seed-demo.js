@@ -30,8 +30,10 @@ export const seedDemoEnvironment = async (options = {}) => {
   }
 
   const demoPassword = process.env.DEMO_PASSWORD || 'DemoPass123!';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'adminPassword123';
   const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(demoPassword, salt);
+  const hashedDemoPassword = await bcrypt.hash(demoPassword, salt);
+  const hashedAdminPassword = await bcrypt.hash(adminPassword, salt);
 
   // 2. Deterministic Demo Users
   const demoUsersConfig = [
@@ -102,7 +104,7 @@ export const seedDemoEnvironment = async (options = {}) => {
     if (!user) {
       user = await User.create({
         ...config,
-        password: hashedPassword
+        password: config.role === 'admin' ? hashedAdminPassword : hashedDemoPassword
       });
       log(`   + Created: ${config.name} (${config.email}) [${config.role}]`);
     } else {
@@ -114,6 +116,7 @@ export const seedDemoEnvironment = async (options = {}) => {
       user.verificationStatus = config.verificationStatus;
       user.verificationNotes = config.verificationNotes || '';
       user.city = config.city;
+      user.password = config.role === 'admin' ? hashedAdminPassword : hashedDemoPassword;
       await user.save();
       log(`   ~ Reused/Updated: ${config.name} (${config.email}) [${config.role}]`);
     }

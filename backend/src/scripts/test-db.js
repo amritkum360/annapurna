@@ -5,7 +5,7 @@ import { User, Donation, PickupTask } from '../models/index.js';
 
 const testDatabase = async () => {
   console.log('Testing MongoDB connection and models...');
-  console.log('URI:', process.env.MONGODB_URI || 'mongodb://localhost:27017/annapurna');
+  console.log('URI:', process.env.MONGODB_URI || 'mongodb+srv://amritkum360:7004343011@cluster0.3ssdupo.mongodb.net/annapurna');
 
   try {
     const conn = await connectDB();
